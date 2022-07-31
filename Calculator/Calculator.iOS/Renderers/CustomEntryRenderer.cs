@@ -12,13 +12,19 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
 namespace Calculator.iOS.Renderers
 {
-    public class CustomEntryRenderer : EntryRenderer
+    public class CustomEntryRenderer : EditorRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
 
             this.Control.InputView = new UIView();
+
+            if (Control != null)
+            {
+                Control.Layer.CornerRadius = 10;
+                
+            }
         }
     }
 }

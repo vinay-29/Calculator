@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Calculator.CustomControls
 {
-    public class CustomEntry : Entry
+    public class CustomEntry : Editor
     {
 
     }

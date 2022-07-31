@@ -15,7 +15,7 @@
             <Setter Property="BorderWidth"
                     Value="1" /> 
             <Setter Property="BorderColor"
-                    Value="Yellow" />
+                    Value="#5adea7" />
             <Setter Property="FontSize"
                     Value="40" />
             <Setter Property="BorderRadius"
@@ -24,7 +24,6 @@
                     Value="80" />
             <Setter Property="HeightRequest"
                     Value="80" />
-            
             <Setter Property="HorizontalOptions"
                     Value="Center" />
             <Setter Property="VerticalOptions"
@@ -38,7 +37,10 @@
                     Value="#ddd" />
             <Setter Property="TextColor"
                     Value="Black" />
-            
+            <Setter Property="BorderWidth"
+                    Value="1" />
+            <Setter Property="BorderColor"
+                    Value="#5adea7" />
             <Setter Property="FontSize"
                     Value="40" />
             <Setter Property="BorderRadius"
@@ -55,13 +57,13 @@
         <Style x:Key="orangeButton"
                TargetType="Button">
             <Setter Property="BackgroundColor"
-                    Value="#E8AD00" />
+                    Value="#Ec4d03" />
             <Setter Property="TextColor"
                     Value="White" />
             <Setter Property="BorderWidth"
                     Value="1" />
             <Setter Property="BorderColor"
-                    Value="Yellow" />
+                    Value="#5adea7" />
             <Setter Property="FontSize"
                     Value="40" />
             <Setter Property="BorderRadius"
@@ -75,14 +77,16 @@
             <Setter Property="VerticalOptions"
                     Value="Center" />
         </Style>
+        
 
     </ContentPage.Resources>
 
-        <Grid RowSpacing="1"
-          ColumnSpacing="1" BackgroundColor="Purple">
+        <Grid x:Name="gridView" RowSpacing="1"
+          ColumnSpacing="1" BackgroundColor="#F1b292">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -96,109 +100,150 @@
             </Grid.ColumnDefinitions>
 
 
-        
-        <local:CustomEntry x:Name="textEntry"  Text="" FontSize="75" Grid.Row="0" BackgroundColor="Azure"
+
+        <local:CustomEntry x:Name="texteditor"  Text="" FontSize="45" Grid.Row="0" BackgroundColor="#Ece5e1"
                Grid.ColumnSpan="4" TextChanged="OnTextChanged"
-               TextColor="LightCoral" HorizontalOptions="FillAndExpand" />
+               TextColor="LightCoral" HorizontalOptions="FillAndExpand">
             
-        <Label Text="0"
+        </local:CustomEntry>
+
+        <local:CustomEntry x:Name="textViewEditor"  Text="" FontSize="35" Grid.Row="1" BackgroundColor="#F3ded3"
+               Grid.ColumnSpan="4" TextChanged="OnTextChanged"
+               TextColor="Chocolate" HorizontalOptions="FillAndExpand">
+
+        </local:CustomEntry>
+
+        <Label x:Name="enrtyRecordLbl"
+               Text="0"
                BackgroundColor="DimGray"
                HorizontalTextAlignment="End"
                VerticalTextAlignment="End"
                TextColor="White"
-               Grid.Row="1"
+               Grid.Row="2"
                FontSize="60"
                Grid.ColumnSpan="4" />
+            
+            <!--Row 3-->
             <Button Text="C"
-                Grid.Row="2"
+                Grid.Row="3"
                 Style="{StaticResource darkerButton}" 
-                Clicked="OnBackspaceClicked"
+                Clicked="OnClearTextClicked"
                     />
-            <Button Text="+/-"
-                Grid.Row="2"
+            <Button x:Name="plusMinusBtn"
+                Text="+/-"
+                Grid.Row="3"
                 Grid.Column="1"
+                Clicked="OnPlusMinusClicked"
                 Style="{StaticResource darkerButton}"/>
-            <Button Text="%"
-                Grid.Row="2"
+        <Button x:Name="percentageBtn"
+                Text="%"
+                Grid.Row="3"
                 Grid.Column="2"
-                Style="{StaticResource darkerButton}" />
-            <Button Text="div"
-                Grid.Row="2"
+                Clicked="OperatorKeyClicked"
+                Style="{StaticResource orangeButton}" />
+            
+        <Button x:Name="divisionBtn"
+                 Text="÷"
+                Grid.Row="3"
                 Grid.Column="3"
+                Clicked="OperatorKeyClicked"
                 Style="{StaticResource orangeButton}" />
 
-              <!--Row 3-->
+              <!--Row 4-->
         <Button 
-                Grid.Row="3"
+                Grid.Row="4"
                 Text="7"
                 Style="{StaticResource plainButton}" 
-                Clicked="OnButton7Clicked"
+                Clicked="OnNumberClicked"
                 />
         <Button Text="8"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 Margin="2"
                 Style="{StaticResource plainButton}" 
-                Clicked="OnButton8Clicked"
+                Clicked="OnNumberClicked"
                 />
             <Button Text="9"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="2"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
-            <Button Text="X"
-                Grid.Row="3"
+        <Button x:Name="multiplyBtn"
+                Text="x"
+                Grid.Row="4"
                 Grid.Column="3"
+                Clicked="OperatorKeyClicked"
                 Style="{StaticResource orangeButton}" />
             
             
-             <!--Row 4-->
+             <!--Row 5-->
             <Button Text="4"
-                Grid.Row="4"
+                Grid.Row="5"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
             <Button Text="5"
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="1"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
             <Button Text="6"
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="2"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
-            <Button Text="-"
-                Grid.Row="4"
-                Grid.Column="3"
+        <Button x:Name="minusBtn"
+                Text="-"
+                Grid.Row="5"
+                Grid.Column="3" 
+                Clicked="OperatorKeyClicked"
                 Style="{StaticResource orangeButton}" />
 
 
-        <!--Row 5-->
+        <!--Row 6-->
         <Button Text="1"
-                Grid.Row="5"
+                Grid.Row="6"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
-        
-            <Button Text="2"
-                Grid.Row="5"
+        <Button Text="2"
+                Grid.Row="6"
                 Grid.Column="1"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
             <Button Text="3"
-                Grid.Row="5"
+                Grid.Row="6"
                 Grid.Column="2"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
-            <Button Text="+"
-                Grid.Row="5"
+        <Button x:Name="plusBtn"
+                Text="+"
+                Grid.Row="6"
                 Grid.Column="3"
+                Clicked="OperatorKeyClicked"
                 Style="{StaticResource orangeButton}" />
             
-            <!--Row 6-->
+            <!--Row 7-->
             <Button Text="0"
-                Grid.ColumnSpan="2"
-                Grid.Row="6"
+                Grid.Row="7"
+                Clicked="OnNumberClicked"
                 Style="{StaticResource plainButton}" />
+            
             <Button Text="."
-                Grid.Row="6"
-                Grid.Column="2"
+                Grid.Row="7"
+                Grid.Column="1"
+                Padding="0,0,0,20"
+                Clicked="OnDecimalKeyClicked"
                 Style="{StaticResource plainButton}" />
-            <Button Text="="
-                Grid.Row="6"
+
+        <Button Text="A"
+                Grid.Row="7"
+                Grid.Column="2"
+                Clicked="OnMagicKeyClicked"
+                Style="{StaticResource plainButton}" />
+            
+        <Button Text="="
+                Grid.Row="7"
                 Grid.Column="3"
+                Clicked="OnEqualsClicked"
                 Style="{StaticResource orangeButton}" />
         </Grid>
    
